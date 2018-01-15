@@ -1,0 +1,7 @@
+﻿.link_cursor {
+    cursor: pointer;
+}
+
+.mandatory {
+    color: #FF0000 !important;
+}

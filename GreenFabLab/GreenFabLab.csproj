@@ -45,12 +45,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.2.0\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -141,24 +154,253 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminDashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Language.de.Designer.cs">
+      <DependentUpon>Language.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Language.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Language.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets\css\bootstrap.min.css" />
+    <Content Include="Content\assets\css\demo.css" />
+    <Content Include="Content\assets\css\material-dashboard.css" />
+    <Content Include="Content\assets\img\apple-icon.png" />
+    <Content Include="Content\assets\img\cover.jpeg" />
+    <Content Include="Content\assets\img\faces\marc.jpg" />
+    <Content Include="Content\assets\img\favicon.png" />
+    <Content Include="Content\assets\img\mask.png" />
+    <Content Include="Content\assets\img\new_logo.png" />
+    <Content Include="Content\assets\img\sidebar-1.jpg" />
+    <Content Include="Content\assets\img\sidebar-2.jpg" />
+    <Content Include="Content\assets\img\sidebar-3.jpg" />
+    <Content Include="Content\assets\img\sidebar-4.jpg" />
+    <Content Include="Content\assets\img\tim_80x80.png" />
+    <Content Include="Content\assets\js\arrive.min.js" />
+    <Content Include="Content\assets\js\bootstrap-notify.js" />
+    <Content Include="Content\assets\js\bootstrap.min.js" />
+    <Content Include="Content\assets\js\chartist.min.js" />
+    <Content Include="Content\assets\js\demo.js" />
+    <Content Include="Content\assets\js\jquery-3.2.1.min.js" />
+    <Content Include="Content\assets\js\material-dashboard.js" />
+    <Content Include="Content\assets\js\material.min.js" />
+    <Content Include="Content\assets\js\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Content\bootstrap-dialog.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Project.css" />
+    <Content Include="DashboardContent\assets\css\bootstrap-theme.min.css" />
+    <Content Include="DashboardContent\assets\css\bootstrap.min.css" />
+    <Content Include="DashboardContent\assets\css\font-awesome.min.css" />
+    <Content Include="DashboardContent\assets\css\fonticons.css" />
+    <Content Include="DashboardContent\assets\css\plugins.css" />
+    <Content Include="DashboardContent\assets\css\responsive.css" />
+    <Content Include="DashboardContent\assets\css\slider-pro.css" />
+    <Content Include="DashboardContent\assets\css\style.css" />
+    <Content Include="DashboardContent\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="DashboardContent\assets\fonts\Linearicons-Free.svg" />
+    <Content Include="DashboardContent\assets\images\BioDiesel1.jpeg" />
+    <Content Include="DashboardContent\assets\images\blank.gif" />
+    <Content Include="DashboardContent\assets\images\bloginner.png" />
+    <Content Include="DashboardContent\assets\images\bloginner1.jpg" />
+    <Content Include="DashboardContent\assets\images\c1.png" />
+    <Content Include="DashboardContent\assets\images\closedhand.cur" />
+    <Content Include="DashboardContent\assets\images\FabLab_Kali.png" />
+    <Content Include="DashboardContent\assets\images\homebg.jpg" />
+    <Content Include="DashboardContent\assets\images\insta0.png" />
+    <Content Include="DashboardContent\assets\images\insta1.png" />
+    <Content Include="DashboardContent\assets\images\line.png" />
+    <Content Include="DashboardContent\assets\images\loading.gif" />
+    <Content Include="DashboardContent\assets\images\logo.png" />
+    <Content Include="DashboardContent\assets\images\openhand.cur" />
+    <Content Include="DashboardContent\assets\images\pf01.png" />
+    <Content Include="DashboardContent\assets\images\pf02.png" />
+    <Content Include="DashboardContent\assets\images\pf1.png" />
+    <Content Include="DashboardContent\assets\images\pf2.png" />
+    <Content Include="DashboardContent\assets\images\pf3.png" />
+    <Content Include="DashboardContent\assets\images\pf4.png" />
+    <Content Include="DashboardContent\assets\images\pf5.png" />
+    <Content Include="DashboardContent\assets\images\pf6.png" />
+    <Content Include="DashboardContent\assets\images\Screenshot.png" />
+    <Content Include="DashboardContent\assets\images\service0.png" />
+    <Content Include="DashboardContent\assets\images\service1.png" />
+    <Content Include="DashboardContent\assets\images\service2.png" />
+    <Content Include="DashboardContent\assets\images\service3.jpeg" />
+    <Content Include="DashboardContent\assets\images\service3.jpg" />
+    <Content Include="DashboardContent\assets\images\service4.jpg" />
+    <Content Include="DashboardContent\assets\images\service5.jpg" />
+    <Content Include="DashboardContent\assets\images\service6.jpg" />
+    <Content Include="DashboardContent\assets\images\service7.jpg" />
+    <Content Include="DashboardContent\assets\images\team1.jpg" />
+    <Content Include="DashboardContent\assets\images\team2.jpg" />
+    <Content Include="DashboardContent\assets\images\team3.jpg" />
+    <Content Include="DashboardContent\assets\images\tuchbg.jpg" />
+    <Content Include="DashboardContent\assets\images\workhome.jpg" />
+    <Content Include="DashboardContent\assets\images\workhome.png" />
+    <Content Include="DashboardContent\assets\images\workhome1.jpg" />
+    <Content Include="DashboardContent\assets\images\workhome2.jpg" />
+    <Content Include="DashboardContent\assets\images\workhome3.jpg" />
+    <Content Include="DashboardContent\assets\js\gmaps.min.js" />
+    <Content Include="DashboardContent\assets\js\jquery.easing.1.3.js" />
+    <Content Include="DashboardContent\assets\js\jquery.mixitup.min.js" />
+    <Content Include="DashboardContent\assets\js\jquery.slicknav.min.js" />
+    <Content Include="DashboardContent\assets\js\jquery.sliderPro.min.js" />
+    <Content Include="DashboardContent\assets\js\main.js" />
+    <Content Include="DashboardContent\assets\js\masonry\masonry.min.js" />
+    <Content Include="DashboardContent\assets\js\plugins.js" />
+    <Content Include="DashboardContent\assets\js\vendor\bootstrap.js" />
+    <Content Include="DashboardContent\assets\js\vendor\bootstrap.min.js" />
+    <Content Include="DashboardContent\assets\js\vendor\jquery-1.11.2.min.js" />
+    <Content Include="DashboardContent\assets\js\vendor\modernizr-2.8.3-respond-1.4.2.min.js" />
+    <Content Include="DashboardContent\assets\js\vendor\npm.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\1.jpg" />
+    <Content Include="img\1.png" />
+    <Content Include="img\10.jpg" />
+    <Content Include="img\11.jpg" />
+    <Content Include="img\12.jpg" />
+    <Content Include="img\2.jpg" />
+    <Content Include="img\3.jpg" />
+    <Content Include="img\4.jpg" />
+    <Content Include="img\5.jpg" />
+    <Content Include="img\6.jpg" />
+    <Content Include="img\8.jpg" />
+    <Content Include="img\9.jpg" />
+    <Content Include="img\down-arrow.png" />
+    <Content Include="img\iconLogo.ico" />
+    <Content Include="img\loading.gif" />
+    <Content Include="img\members1.jpg" />
+    <Content Include="img\members2.jpg" />
+    <Content Include="img\members3.jpg" />
+    <Content Include="img\overlay.png" />
+    <Content Include="img\parallax\1.jpg" />
+    <Content Include="img\parallax\2.jpg" />
+    <Content Include="img\parallax\3.jpg" />
+    <Content Include="img\parallax\4.jpg" />
+    <Content Include="img\parallax\7.jpg" />
+    <Content Include="img\parallax\img1.jpg" />
+    <Content Include="img\parallax\img2.jpg" />
+    <Content Include="img\portfolio\1.jpg" />
+    <Content Include="img\portfolio\2.jpg" />
+    <Content Include="img\portfolio\3.jpg" />
+    <Content Include="img\portfolio\4.jpg" />
+    <Content Include="img\portfolio\5.jpg" />
+    <Content Include="img\portfolio\6.jpg" />
+    <Content Include="img\portfolio\7.jpg" />
+    <Content Include="img\portfolio\8.jpg" />
+    <Content Include="img\portfolio\9.jpg" />
+    <Content Include="img\portfolio\Thumbnail.jpg" />
+    <Content Include="Scripts\bootstrap-dialog.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="img\img.zip" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome\FontAwesome.otf" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot%40" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="connectionString.config" />
+    <Content Include="Scripts\GitecAlertMsg.js" />
+    <Content Include="Views\Login\Login_PV.cshtml" />
+    <Content Include="Views\Shared\_Mandatory.cshtml" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminDashboard\Dashboard.cshtml" />
+    <Content Include="Content\assets\sass\material-dashboard.scss" />
+    <Content Include="Content\assets\sass\md\_alerts.scss" />
+    <Content Include="Content\assets\sass\md\_buttons.scss" />
+    <Content Include="Content\assets\sass\md\_cards.scss" />
+    <Content Include="Content\assets\sass\md\_chartist.scss" />
+    <Content Include="Content\assets\sass\md\_checkboxes.scss" />
+    <Content Include="Content\assets\sass\md\_colors.scss" />
+    <Content Include="Content\assets\sass\md\_dialogs.scss" />
+    <Content Include="Content\assets\sass\md\_dropdown.scss" />
+    <Content Include="Content\assets\sass\md\_footers.scss" />
+    <Content Include="Content\assets\sass\md\_forms.scss" />
+    <Content Include="Content\assets\sass\md\_inputs-size.scss" />
+    <Content Include="Content\assets\sass\md\_inputs.scss" />
+    <Content Include="Content\assets\sass\md\_misc.scss" />
+    <Content Include="Content\assets\sass\md\_mixins.scss" />
+    <Content Include="Content\assets\sass\md\_navbars.scss" />
+    <Content Include="Content\assets\sass\md\_pagination.scss" />
+    <Content Include="Content\assets\sass\md\_pills.scss" />
+    <Content Include="Content\assets\sass\md\_popups.scss" />
+    <Content Include="Content\assets\sass\md\_radios.scss" />
+    <Content Include="Content\assets\sass\md\_responsive.scss" />
+    <Content Include="Content\assets\sass\md\_ripples.scss" />
+    <Content Include="Content\assets\sass\md\_shadows.scss" />
+    <Content Include="Content\assets\sass\md\_sidebar-and-main-panel.scss" />
+    <Content Include="Content\assets\sass\md\_tables.scss" />
+    <Content Include="Content\assets\sass\md\_tabs.scss" />
+    <Content Include="Content\assets\sass\md\_togglebutton.scss" />
+    <Content Include="Content\assets\sass\md\_typography.scss" />
+    <Content Include="Content\assets\sass\md\_variables.scss" />
+    <Content Include="Content\assets\sass\md\mixins\_chartist.scss" />
+    <Content Include="Content\assets\sass\md\mixins\_transparency.scss" />
+    <Content Include="Content\assets\sass\md\mixins\_vendor-prefixes.scss" />
+    <Content Include="Content\assets\sass\md\plugins\_animate.scss" />
+    <Content Include="Content\assets\sass\md\plugins\_perfect-scrollbar.scss" />
+    <Content Include="Content\assets\sass\md\plugins\_plugin-nouislider.scss" />
+    <Content Include="DashboardContent\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="DashboardContent\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="DashboardContent\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="DashboardContent\assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="DashboardContent\assets\fonts\FontAwesome.otf" />
+    <Content Include="DashboardContent\assets\fonts\Linearicons-Free.eot" />
+    <Content Include="DashboardContent\assets\fonts\Linearicons-Free.ttf" />
+    <Content Include="DashboardContent\assets\fonts\Linearicons-Free.woff" />
+    <Content Include="DashboardContent\assets\fonts\Linearicons-Free.woff2" />
+    <Content Include="Views\Home\WasteWaterWork.cshtml" />
+    <Content Include="Views\Home\BiodieselWork.cshtml" />
+    <Content Include="Views\Home\BiogasWork.cshtml" />
+    <Content Include="Views\Home\Services.cshtml" />
+    <Content Include="Views\Home\Blog1.cshtml" />
+    <Content Include="Views\Home\Blog2.cshtml" />
+    <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
+    <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
+    <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
+    <None Include="_bin_deployableAssemblies\x86\sqlceer40EN.dll" />
+    <None Include="_bin_deployableAssemblies\x86\sqlcecompact40.dll" />
+    <None Include="_bin_deployableAssemblies\x86\sqlceca40.dll" />
+    <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\README_ENU.txt" />
+    <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\msvcr90.dll" />
+    <None Include="_bin_deployableAssemblies\amd64\sqlcese40.dll" />
+    <None Include="_bin_deployableAssemblies\amd64\sqlceqp40.dll" />
+    <None Include="_bin_deployableAssemblies\amd64\sqlceme40.dll" />
+    <None Include="_bin_deployableAssemblies\amd64\sqlceer40EN.dll" />
+    <None Include="_bin_deployableAssemblies\amd64\sqlcecompact40.dll" />
+    <None Include="_bin_deployableAssemblies\amd64\sqlceca40.dll" />
+    <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\README_ENU.txt" />
+    <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\msvcr90.dll" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -184,9 +426,13 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
+    <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="img\team\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -203,6 +449,26 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GreenFabLab.BLL\GreenFabLab.BLL.csproj">
+      <Project>{93F3018A-39EC-4D8A-939D-8601B2A9D311}</Project>
+      <Name>GreenFabLab.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GreenFabLab.DTO\GreenFabLab.DTO.csproj">
+      <Project>{718DA027-13E2-4F39-AD1D-E7AEBC206F9B}</Project>
+      <Name>GreenFabLab.DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Language.de.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Language.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Language.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Language.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
