@@ -56,13 +56,9 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="GreenFabLabContext.cs" />
-    <Compile Include="Migrations\201712101918090_user.cs" />
-    <Compile Include="Migrations\201712101918090_user.Designer.cs">
-      <DependentUpon>201712101918090_user.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801102044238_content.cs" />
-    <Compile Include="Migrations\201801102044238_content.Designer.cs">
-      <DependentUpon>201801102044238_content.cs</DependentUpon>
+    <Compile Include="Migrations\201801162014434_tableCreated.cs" />
+    <Compile Include="Migrations\201801162014434_tableCreated.Designer.cs">
+      <DependentUpon>201801162014434_tableCreated.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,20 +69,16 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201801162014434_tableCreated.resx">
+      <DependentUpon>201801162014434_tableCreated.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GreenFabLab.DTO\GreenFabLab.DTO.csproj">
       <Project>{718DA027-13E2-4F39-AD1D-E7AEBC206F9B}</Project>
       <Name>GreenFabLab.DTO</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712101918090_user.resx">
-      <DependentUpon>201712101918090_user.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801102044238_content.resx">
-      <DependentUpon>201801102044238_content.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
