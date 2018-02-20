@@ -156,6 +156,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminDashboardController.cs" />
+    <Compile Include="Areas\Applicant\ApplicantAreaRegistration.cs" />
+    <Compile Include="Areas\Applicant\Controllers\ApplicantController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
@@ -204,6 +206,8 @@
     <Content Include="Content\fonts\fontawesome\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Project.css" />
+    <Content Include="Content\Theme\jquery-ui.min.css" />
+    <Content Include="Content\ui.jqgrid.css" />
     <Content Include="DashboardContent\assets\css\bootstrap-theme.min.css" />
     <Content Include="DashboardContent\assets\css\bootstrap.min.css" />
     <Content Include="DashboardContent\assets\css\font-awesome.min.css" />
@@ -329,6 +333,8 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="connectionString.config" />
     <Content Include="Scripts\GitecAlertMsg.js" />
+    <Content Include="Scripts\jqGrid\grid.locale-en.js" />
+    <Content Include="Scripts\jqGrid\jquery.jqGrid.js" />
     <Content Include="Views\Login\Login_PV.cshtml" />
     <Content Include="Views\Shared\_Mandatory.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
@@ -385,6 +391,8 @@
     <Content Include="Views\Home\Services.cshtml" />
     <Content Include="Views\Home\Blog1.cshtml" />
     <Content Include="Views\Home\Blog2.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminDashboard\TabAppliacntList.cshtml" />
+    <Content Include="Areas\Applicant\Views\web.config" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -432,6 +440,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Applicant\Models\" />
+    <Folder Include="Areas\Applicant\Views\Applicant\" />
+    <Folder Include="Areas\Applicant\Views\Shared\" />
     <Folder Include="img\team\" />
     <Folder Include="Models\" />
   </ItemGroup>

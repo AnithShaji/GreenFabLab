@@ -37,10 +37,6 @@ namespace GreenFabLab.Areas.Admin.Controllers
         {
             switch (tab)
             {
-                //case "tabDashboard":
-                //    {
-                //        return this.RedirectToAction("GetClientHeadOffice", new { clientID = clientID });
-                //    }
 
                 case "tabDashboard":
                     {
@@ -52,24 +48,14 @@ namespace GreenFabLab.Areas.Admin.Controllers
                         return this.PartialView("UserProfile");
                     }
 
-                case "tabEmployeeList":
+                case "tabApplicantList":
                     {
-                        return this.PartialView("TabEmployeeList");
+                        return this.PartialView("TabAppliacntList");
                     }
-
-                case "tabRoles":
-                    {
-                        return this.PartialView("ClientRoles");
-                    }
-
-                case "tabStaffTypes":
-                    {
-                        return this.PartialView("ClientStaffTypes");
-                    }
-
+              
                 default:
                     {
-                        return this.PartialView("ClientHeadOffice");
+                        return this.PartialView("Dashboard");
                     }
             }
         }

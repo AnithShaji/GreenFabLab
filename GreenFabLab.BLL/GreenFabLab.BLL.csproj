@@ -55,8 +55,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessObject\Common\CommonClass.cs" />
+    <Compile Include="BusinessObject\ManageApplicant.cs" />
+    <Compile Include="BusinessObject\ManageContent.cs" />
     <Compile Include="BusinessObject\ManageUserLogin.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Interface\IManageApplicant.cs" />
+    <Compile Include="Interface\IManageContent.cs" />
     <Compile Include="Interface\IManageUserLogin.cs" />
     <Compile Include="Interface\IUnitOfWork.cs" />
     <Compile Include="Persistence\UnitOfWork.cs" />

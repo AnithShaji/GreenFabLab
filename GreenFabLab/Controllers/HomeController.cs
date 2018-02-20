@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GreenFabLab.BLL.BusinessObject;
+using GreenFabLab.BLL.Interface;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -10,14 +12,50 @@ namespace GreenFabLab.Controllers
 {
     public class HomeController : Controller
     {
+        /// <summary>
+        /// manage Manage Content
+        /// </summary>
+        private readonly IManageContent _manageContent;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HomeController"/> class.
+        /// </summary>
+        public HomeController()
+        {
+            this._manageContent = new ManageContent();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HomeController"/> class
+        /// </summary>
+        /// <param name="manageContent">manage Manage Content</param>
+        public HomeController(ManageContent manageContent)
+        {
+            this._manageContent = manageContent;
+        }
+
         public ActionResult Index()
 
         {
-            return View();
+            var lang = string.Empty;
+            if (this.Session["Language"] != null)
+            {
+                lang = this.Session["Language"].ToString();
+            }
+
+            var content = this._manageContent.GetMainPageContent(lang);
+
+            return View(content);
         }
 
         public ActionResult About()
         {
+
+            var lang = string.Empty;
+            if (this.Session["Language"] != null)
+            {
+                lang = this.Session["Language"].ToString();
+            }
             return View();
         }
 
@@ -59,7 +97,8 @@ namespace GreenFabLab.Controllers
         public ActionResult ChangeLanguage(string lang)
         {
 
-            if (lang != null) {
+            if (lang != null)
+            {
 
                 Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(lang);
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
@@ -68,7 +107,7 @@ namespace GreenFabLab.Controllers
             HttpCookie cookie = new HttpCookie("Language");
             cookie.Value = lang;
             Response.Cookies.Add(cookie);
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
     }

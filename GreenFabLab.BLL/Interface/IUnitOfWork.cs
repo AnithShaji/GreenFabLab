@@ -14,6 +14,12 @@ namespace GreenFabLab.BLL.Interface
         /// </summary>
         IRepository<Users> UserRepository { get; }
 
+
+        /// <summary>
+        /// Gets website Contentn details repository
+        /// </summary>
+        IRepository<WebsiteContent> WebsiteContentnRepository { get; }
+
         ///// <summary>
         ///// Gets permission details repository
         ///// </summary>

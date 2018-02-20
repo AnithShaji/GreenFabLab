@@ -1,30 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GreenFabLab.DTO
+namespace GreenFabLab.DTO.ViewModel
 {
-    public class Users
+   public class ApplicantListingVM
     {
         /// <summary>
         /// Gets or sets the primary key
         /// </summary>
-        [Key]
         public int UserID { get; set; }
 
         /// <summary>
-        /// Gets or sets the user name
+        /// Gets or sets the full name
         /// </summary>
-        public string Username { get; set; }
-
-        /// <summary>
-        /// Gets or sets the password
-        /// </summary>
-        public string Password { get; set; }
+        public string FullName { get; set; }
 
         /// <summary>
         /// Gets or sets the first name
@@ -120,15 +112,6 @@ namespace GreenFabLab.DTO
         /// Gets or sets the modified by user
         /// </summary>
         public int? ModifiedByID { get; set; }
-        /// <summary>
-        /// Gets or sets the user User Role ID
-        /// </summary>
-        [ForeignKey("UserRole")]
-        public int UserRoleID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the User Role
-        /// </summary>
-        public virtual UserRole UserRole { get; set; }
+        
     }
 }

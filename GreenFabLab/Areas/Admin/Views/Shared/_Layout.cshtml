@@ -52,12 +52,16 @@
                             <p>User Profile</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="./table.html">
+                 
+                    <li id="linkApplicantList" onclick="LoadAdminTab('tabApplicantList')">
+                        <a href="#tabApplicantList">
+                            @*<i class="fa fa-th"></i> <span>Applicant List</span>*@
                             <i class="material-icons">content_paste</i>
-                            <p>Table List</p>
+                            <p>Applicant List</p>
+
                         </a>
                     </li>
+
                     <li>
                         <a href="./typography.html">
                             <i class="material-icons">library_books</i>
@@ -167,8 +171,13 @@
 
                     </div>
 
+                    <!--Applicant List-->
+                    <div id="tabApplicantList" hidden class="tabsAdmin">
 
-                    <div class="row">
+                    </div>
+
+
+                    @*<div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
                                 <div class="card-header" data-background-color="orange">
@@ -556,7 +565,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>*@
                 </div>
             </div>
 
@@ -599,6 +608,9 @@
                     </p>
                 </div>
             </footer>
+
+            <input type="hidden" id="tabDashboardClicked" value="false" />
+            <input type="hidden" id="tabApplicantListClicked" value="false" />
         </div>
     </div>
 

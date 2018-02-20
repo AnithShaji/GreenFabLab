@@ -24,10 +24,10 @@ namespace GreenFabLab.BLL.Persistence
         /// </summary>
         private IRepository<Users> userRepository;
 
-        ///// <summary>
-        ///// the Permission repository
-        ///// </summary>
-        //private IRepository<Permissions> permissionRepository;
+        /// <summary>
+        /// the Website Content repository
+        /// </summary>
+        private IRepository<WebsiteContent> websiteContentnRepository;
 
         ///// <summary>
         ///// the User Type repository
@@ -89,21 +89,22 @@ namespace GreenFabLab.BLL.Persistence
             }
         }
 
-        ///// <summary>
-        ///// Gets permission details repository
-        ///// </summary>
-        //public IRepository<Permissions> PermissionRepository
-        //{
-        //    get
-        //    {
-        //        if (this.permissionRepository == null)
-        //        {
-        //            this.permissionRepository = new Repository<Permissions>(this.context);
-        //        }
 
-        //        return this.permissionRepository;
-        //    }
-        //}
+        /// <summary>
+        /// Gets website Contentn details repository
+        /// </summary>
+        public IRepository<WebsiteContent> WebsiteContentnRepository
+        {
+            get
+            {
+                if (this.websiteContentnRepository == null)
+                {
+                    this.websiteContentnRepository = new Repository<WebsiteContent>(this.context);
+                }
+
+                return this.websiteContentnRepository;
+            }
+        }
 
         ///// <summary>
         ///// Gets the User Type Repository
