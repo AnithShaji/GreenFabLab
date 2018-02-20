@@ -1,8 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using GreenFabLab.DAL.Migration;
-using GreenFabLab.DTO;
 using GreenFabLab.DAL.Migrations;
+using GreenFabLab.DTO;
 
 namespace GreenFabLab.DAL
 {

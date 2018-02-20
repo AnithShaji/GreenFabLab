@@ -93,7 +93,10 @@ namespace GreenFabLab.Controllers
         {
             return View();
         }
-
+        public ActionResult geolocation()
+        {
+            return View();
+        }
         public ActionResult ChangeLanguage(string lang)
         {
 
